@@ -1,16 +1,11 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import unsplash from '../api/unsplash'
-import { react } from '@babel/types';
+import ImageList from './ImageList'
 
 
 class App extends React.Component {
     state = { images: [] };
-    // constructor() {
-    //     super()
-    //     this.onSearchSubmit = this.onSearchSubmit.bind(this)
-    // }
-
 
 
     onSearchSubmit = async (term) => {
@@ -28,6 +23,7 @@ class App extends React.Component {
             <div className="ui container" style={{ marginTop: '10px' }}>
                 <SearchBar onSubmit={this.onSearchSubmit} />
                 Found: {this.state.images.length} images
+                <ImageList images={this.state.images} />
             </div>
         );
     }
